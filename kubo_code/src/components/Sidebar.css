@@ -1,0 +1,175 @@
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background-color: #0b1523;
+    /* Dark Navy */
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 100;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    margin-right: 15px;
+}
+
+.sidebar.collapsed {
+    width: 60px;
+}
+
+.sidebar-header {
+    padding: 0 0.8rem;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    box-sizing: border-box;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    min-width: 24px;
+}
+
+.sidebar-title {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    margin-left: 10px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.sidebar.collapsed .sidebar-title {
+    opacity: 0;
+    width: 0;
+    display: none;
+}
+
+.sidebar-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    overflow: hidden;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #a0aec0;
+    text-decoration: none;
+    background: none;
+    border: none;
+    width: 92%;
+    margin: 3px auto;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    padding-left: 1.2rem;
+    /* Slide effect */
+}
+
+/* Small Red Detail: Hover bar */
+.menu-item:hover::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background-color: #ff3366;
+}
+
+.menu-item.active {
+    background-color: rgba(0, 168, 255, 0.15);
+    color: #4facfe;
+    font-weight: 600;
+}
+
+/* Active item gets Blue bar for consistency, or Red if we want that detail? Let's use Red for consistency with "Red details" */
+.menu-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background-color: #ff3366;
+    /* Red Accent */
+}
+
+.sidebar.collapsed .menu-item {
+    padding: 8px;
+    justify-content: center;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    margin-right: 10px;
+}
+
+.icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.sidebar.collapsed .icon {
+    margin-right: 0;
+}
+
+.label {
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.sidebar.collapsed .label {
+    opacity: 0;
+    display: none;
+}
+
+.logout-item {
+    color: #ef5350;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 0;
+    width: 100%;
+    margin: 0;
+}
+
+.logout-item:hover {
+    background-color: rgba(239, 83, 80, 0.1);
+    color: #ff8a80;
+    transform: none;
+}

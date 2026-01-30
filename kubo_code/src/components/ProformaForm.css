@@ -1,0 +1,260 @@
+.proforma-form-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Removed fixed height to allow natural growth */
+    display: flex;
+    flex-direction: column;
+}
+
+.form-title {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Step Indicator */
+.step-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.step-dot {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.step-dot.active {
+    background-color: #0a3d62;
+    /* Dark Blue */
+    color: white;
+    border-color: #ff3366;
+    /* RED Accent Border */
+    box-shadow: 0 0 15px rgba(255, 51, 102, 0.4);
+    /* Red Glow */
+}
+
+.step-line {
+    width: 40px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 0 10px;
+}
+
+/* Form Content */
+.form-content {
+    /* Removed flex: 1 and overflow-y to let it size by content */
+    padding-right: 5px;
+    /* Scrollbar space */
+}
+
+/* Animated Section */
+.animated-section {
+    animation: fadeInStep 0.4s ease-out;
+}
+
+@keyframes fadeInStep {
+    from {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.form-section {
+    margin-bottom: 1rem;
+}
+
+.form-section h3 {
+    color: #4facfe;
+    /* Tech Blue Text */
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 51, 102, 0.3);
+    /* Subtle Red underline */
+    padding-bottom: 0.5rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.form-group label {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.8rem;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4facfe;
+    /* Blue Focus */
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0 2px rgba(79, 172, 254, 0.2);
+}
+
+.input-readonly {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    color: #ff3366 !important;
+    /* Red Text for Total */
+    font-weight: bold;
+    cursor: not-allowed;
+    border-color: rgba(255, 51, 102, 0.2) !important;
+}
+
+/* Navigation Buttons */
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.prev-btn {
+    background-color: transparent;
+    color: #aaa;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.prev-btn:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.prev-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.next-btn {
+    background-color: #4facfe;
+    color: #ffffff;
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    border: none;
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+.next-btn:hover:not(:disabled) {
+    background-image: linear-gradient(to right, #00f2fe 0%, #4facfe 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 172, 254, 0.6);
+}
+
+.next-btn:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.step-counter {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.9rem;
+}
+
+/* Item Navigation */
+.product-control-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.item-navigation {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 5px 15px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.item-counter {
+    color: #4facfe;
+    font-weight: bold;
+    min-width: 80px;
+    text-align: center;
+}
+
+.item-nav-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid rgba(79, 172, 254, 0.3);
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.item-nav-btn:hover:not(:disabled) {
+    background-color: #4facfe;
+    border-color: #4facfe;
+    box-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+}
+
+.item-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    border-color: rgba(255, 255, 255, 0.05);
+}
